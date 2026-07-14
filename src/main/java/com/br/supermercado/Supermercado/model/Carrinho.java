@@ -2,14 +2,12 @@ package com.br.supermercado.Supermercado.model;
 
 import com.br.supermercado.Supermercado.model.enums.StatusCarrinho;
 import jakarta.persistence.*;
-import jdk.jshell.Snippet;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "carrinho")
