@@ -25,8 +25,8 @@ public class Venda {
     @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL)
     private List<ItemVenda> itens = new ArrayList<>();
 
-    @Column(name = "preco_total",nullable = false, precision = 10, scale = 2)
-    private BigDecimal precoTotal;
+    @Column(name = "valor_total",nullable = false, precision = 10, scale = 2)
+    private BigDecimal ValorTotal;
 
     @Column(name = "data_venda", nullable = false)
     private LocalDateTime dataVenda;
