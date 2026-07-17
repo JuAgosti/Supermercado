@@ -2,6 +2,7 @@ package com.br.supermercado.Supermercado.service;
 
 import com.br.supermercado.Supermercado.model.Carrinho;
 import com.br.supermercado.Supermercado.model.ItemCarrinho;
+import com.br.supermercado.Supermercado.model.Produto;
 import com.br.supermercado.Supermercado.model.Venda;
 import com.br.supermercado.Supermercado.model.enums.StatusCarrinho;
 import com.br.supermercado.Supermercado.repository.CarrinhoRepository;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class VendaService {
@@ -73,4 +75,8 @@ public class VendaService {
             return vendaRepository.save(venda);
     }
 
+    // Listar vendas
+    public List<Venda> listarVendas(){
+        return vendaRepository.findAll();
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class ProdutoService {
@@ -74,5 +75,10 @@ public class ProdutoService {
 
         return produtoRepository.save(produto);
 
+    }
+
+    // Listar produtos
+    public List<Produto> listarProdutos(){
+        return produtoRepository.findAll();
     }
 }

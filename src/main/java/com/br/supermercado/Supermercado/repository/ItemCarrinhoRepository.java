@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface ItemCarrinhoRepository extends JpaRepository<ItemCarrinho, Long> {
     // Verificar se o produto já existe no carrinho
-    Optional<ItemCarrinho> findByCarrinhoAndProdutoId(Long carrinhoId, Long produtoId);
+    Optional<ItemCarrinho> findByCarrinhoIdAndProdutoId(Long carrinhoId, Long produtoId);
 }

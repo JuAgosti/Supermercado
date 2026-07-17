@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -63,7 +64,7 @@ public class CarrinhoService {
         // Chama a service para dar baixa no esotuqe
         Produto produto = produtoService.darBaixaEstoque(produtoId,quantidade);
 
-        Optional<ItemCarrinho> itemExisteOpt = itemCarrinhoRepository.findByCarrinhoAndProdutoId(carrinhoId, produtoId);
+        Optional<ItemCarrinho> itemExisteOpt = itemCarrinhoRepository.findByCarrinhoIdAndProdutoId(carrinhoId, produtoId);
 
         if(itemExisteOpt.isPresent()){
             // Se já existe, asoam a quantidade
@@ -97,7 +98,7 @@ public class CarrinhoService {
         }
 
         // Buscar o item específico no carrinho
-        ItemCarrinho item = itemCarrinhoRepository.findByCarrinhoAndProdutoId(carrinhoId, produtoId)
+        ItemCarrinho item = itemCarrinhoRepository.findByCarrinhoIdAndProdutoId(carrinhoId, produtoId)
                 .orElseThrow(()-> new IllegalArgumentException("Este produto não está no carrinho"));
 
         // Se o cliente quiser remover mais do que ele em no carrinho irá mostrar um erro
@@ -120,5 +121,10 @@ public class CarrinhoService {
         }
 
         return carrinhoRepository.save(carrinho);
+    }
+
+    // Listar todos os carrinhos
+    public List<Carrinho> listarCarrinho(){
+        return carrinhoRepository.findAll();
     }
 }

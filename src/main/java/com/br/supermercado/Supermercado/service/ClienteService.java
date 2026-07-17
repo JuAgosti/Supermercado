@@ -4,6 +4,8 @@ import com.br.supermercado.Supermercado.model.Cliente;
 import com.br.supermercado.Supermercado.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClienteService {
 
@@ -34,5 +36,10 @@ public class ClienteService {
     public Cliente buscaPorCpf(String cpf){
         return clienteRepository.findByCpf(cpf)
                 .orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado!"));
+    }
+
+    // Listar todos os clientes
+    public List<Cliente> listarClientes(){
+        return clienteRepository.findAll();
     }
 }

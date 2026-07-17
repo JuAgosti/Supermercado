@@ -1,5 +1,6 @@
 package com.br.supermercado.Supermercado.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +16,7 @@ public class ItemCarrinho {
 
     @ManyToOne
     @JoinColumn(name = "carrinho_id", nullable = false)
+    @JsonBackReference // Se chegou pelo "pai" para aqui - Isso evita loop na consulta JSON
     private Carrinho carrinho;
 
     @ManyToOne

@@ -23,7 +23,7 @@ public class CarrinhoAgendadorService {
     }
 
     // Buscar todos os carrinhos Abertos que foram criados a mais de 15 minutos
-    @Scheduled(fixedRate = 600000) // Execute a cada 1 minuto(60000 milissegundo) para verificar abandonos
+    @Scheduled(fixedRate = 60000) // Execute a cada 1 minuto(60000 milissegundo) para verificar abandonos
     @Transactional
     public void liberarCarrinhoAbandonados(){
         // Define o tempo limite

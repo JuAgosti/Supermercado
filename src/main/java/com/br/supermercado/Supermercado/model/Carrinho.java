@@ -1,6 +1,7 @@
 package com.br.supermercado.Supermercado.model;
 
 import com.br.supermercado.Supermercado.model.enums.StatusCarrinho;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,7 @@ public class Carrinho {
 
     //cascade: tudo que acontecer com carrinho acontece com os itens
     @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL)
+    @JsonManagedReference // Quem manda no JSON (Pai) - Isso evita loop na consulta JSON
     private List<ItemCarrinho> itens = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
